@@ -23,7 +23,7 @@ body{
 }
 
 a{ color:var(--text); text-decoration:none; }
-a:visited{ color:var(--text); } /* uklanja ljubičasto */
+a:visited{ color:var(--text); }
 a:hover{ opacity:.92; }
 
 .container{
@@ -57,8 +57,7 @@ a:hover{ opacity:.92; }
   gap:14px;
   min-width: 260px;
 }
-
-.brand *{ text-decoration:none !important; } /* nema podcrtavanja naziva firme */
+.brand *{ text-decoration:none !important; }
 
 .logo-badge{
   background:#ffffff;
@@ -198,6 +197,24 @@ h2{ margin:0 0 10px; font-size:26px; }
 .muted{ color:var(--muted); }
 .small{ font-size:12px; }
 
+/* Layout split */
+.split{
+  display:grid;
+  grid-template-columns: 1.2fr .8fr;
+  gap:14px;
+  align-items:start;
+}
+
+.panel{
+  border:1px solid rgba(240,0,0,.25);
+  background: linear-gradient(180deg, rgba(240,0,0,.08), rgba(18,18,23,.85));
+  border-radius: var(--r);
+  padding:16px;
+}
+
+.checklist{ margin:0; padding-left:18px; color:var(--muted); }
+.checklist li{ margin:8px 0; }
+
 /* Cards grid */
 .grid{
   margin-top:16px;
@@ -221,27 +238,6 @@ h2{ margin:0 0 10px; font-size:26px; }
 .hr{ height:1px; background: var(--line); margin:14px 0; }
 .block{ margin:0; }
 
-/* Form */
-label{
-  display:block;
-  margin:10px 0;
-  color:var(--muted);
-  font-size:13px;
-}
-input, textarea, select{
-  width:100%;
-  margin-top:6px;
-  padding:10px 12px;
-  border-radius:12px;
-  border:1px solid var(--line);
-  background: rgba(0,0,0,.30);
-  color:var(--text);
-  outline:none;
-}
-input:focus, textarea:focus, select:focus{
-  border-color: rgba(240,0,0,.55);
-}
-
 /* Contact */
 .contact-grid{
   margin-top:16px;
@@ -249,6 +245,33 @@ input:focus, textarea:focus, select:focus{
   grid-template-columns: 1fr 1fr;
   gap:14px;
 }
+
+/* NICE FORM (kao na tvojoj slici) */
+.form-nice label{
+  display:block;
+  margin:12px 0;
+  color:var(--muted);
+  font-size:13px;
+}
+
+.form-nice input,
+.form-nice textarea{
+  width:100%;
+  margin-top:8px;
+  padding:12px 14px;
+  border-radius:14px;
+  border:1px solid var(--line);
+  background: rgba(0,0,0,.30);
+  color:var(--text);
+  outline:none;
+}
+
+.form-nice input:focus,
+.form-nice textarea:focus{
+  border-color: rgba(240,0,0,.55);
+}
+
+.form-nice textarea{ resize: vertical; }
 
 /* Map */
 .map-wrap{
@@ -260,10 +283,12 @@ input:focus, textarea:focus, select:focus{
 }
 .map-wrap iframe{
   width:100%;
-  height:360px;
   border:0;
   display:block;
 }
+
+/* smaller map only on contact */
+.map-small iframe{ height:240px; }
 
 /* Gallery (Radovi) */
 .gallery{
@@ -305,4 +330,5 @@ mark.search-hit{
   .grid{ grid-template-columns: 1fr; }
   .contact-grid{ grid-template-columns: 1fr; }
   .gallery{ grid-template-columns: 1fr; }
+  .split{ grid-template-columns: 1fr; }
 }
