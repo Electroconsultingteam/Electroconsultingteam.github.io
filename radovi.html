@@ -13,7 +13,7 @@
   <div class="container header-inner">
     <a class="brand" href="index.html#top" aria-label="Naslovna">
       <div class="logo-badge">
-        <img src="assets/logo_ect.png" alt="ELECTRO CONSULTING TEAM d.o.o. logo">
+        <img src="assets/logo_ect.png" alt="ELECTRO CONSULTING TEAM d.o.o. logo" />
       </div>
       <div class="brand-text">
         <div class="brand-title">ELECTRO CONSULTING TEAM d.o.o.</div>
@@ -24,6 +24,7 @@
     <nav class="nav" aria-label="Glavni izbornik">
       <a class="nav-link" href="index.html#top">Naslovna</a>
       <a class="nav-link" href="index.html#usluge">Usluge</a>
+      <a class="nav-link" href="index.html#onama">O nama</a>
       <a class="nav-link active" href="radovi.html">Radovi</a>
       <a class="nav-link" href="index.html#kontakt">Kontakt</a>
     </nav>
@@ -43,7 +44,7 @@
 
       <div class="gallery">
         <figure class="card">
-          <img class="gallery-img" src="assets/radovi/kuhinja-rasvjeta-01.jpg" alt="Elektro instalacije i rasvjeta - interijer">
+          <img class="gallery-img" src="assets/radovi/kuhinja-rasvjeta-01.jpg" alt="Elektro instalacije i rasvjeta - interijer" />
           <figcaption class="muted small">Rasvjeta i instalacije (interijer)</figcaption>
         </figure>
       </div>
@@ -55,10 +56,6 @@
 
 <footer class="footer">
   <div class="container footer-inner">
-    <div>
-      <strong>ELECTRO CONSULTING TEAM d.o.o.</strong><br />
-      Ulica bana Josipa Jelačića 166, 31220 Višnjevac
-    </div>
     <div class="muted small">
       © <span id="y"></span> ELECTRO CONSULTING TEAM d.o.o.
     </div>
@@ -68,17 +65,14 @@
 <script>
   document.getElementById("y").textContent = new Date().getFullYear();
 
-  // tražilica na stranici Radovi
+  // tražilica na Radovi
   const input = document.getElementById("searchInput");
   const btn = document.getElementById("searchBtn");
   const status = document.getElementById("searchStatus");
   const scope = document.querySelector("main");
 
   function clearMarks(){
-    scope.querySelectorAll("mark.search-hit").forEach(m => {
-      const text = document.createTextNode(m.textContent);
-      m.replaceWith(text);
-    });
+    scope.querySelectorAll("mark.search-hit").forEach(m => m.replaceWith(document.createTextNode(m.textContent)));
     scope.normalize();
   }
 
@@ -91,7 +85,7 @@
         if (!node.nodeValue || !node.nodeValue.trim()) return NodeFilter.FILTER_REJECT;
         const p = node.parentElement;
         if (!p) return NodeFilter.FILTER_REJECT;
-        if (["SCRIPT","STYLE","NOSCRIPT","IFRAME"].includes(p.tagName)) return NodeFilter.FILTER_REJECT;
+        if (["SCRIPT","STYLE","NOSCRIPT","IFRAME","SELECT","OPTION","TEXTAREA","INPUT"].includes(p.tagName)) return NodeFilter.FILTER_REJECT;
         return NodeFilter.FILTER_ACCEPT;
       }
     });
@@ -134,7 +128,7 @@
   btn.addEventListener("click", doSearch);
   input.addEventListener("keydown", (e) => {
     if (e.key === "Enter") { e.preventDefault(); doSearch(); }
-    if (e.key === "Escape") { input.value = ""; clearMarks(); status.textContent = ""; }
+    if (e.key === "Escape") { input.value=""; clearMarks(); status.textContent=""; }
   });
 </script>
 </body>
