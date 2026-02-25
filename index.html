@@ -12,17 +12,16 @@
 
 <body>
   <header class="header">
-    <div class="header-inner">
+    <div class="container header-inner">
       <a class="brand" href="#top" aria-label="Početna">
         <div class="logo-badge">
+          <!-- VAŽNO: koristimo logo_ect.png -->
           <img src="assets/logo_ect.png" alt="ELECTRO CONSULTING TEAM d.o.o. logo" />
         </div>
 
         <div class="brand-text">
           <div class="brand-title">ELECTRO CONSULTING TEAM d.o.o.</div>
-          <div class="brand-sub">
-            Ulica bana Josipa Jelačića 166, 31220 Višnjevac
-          </div>
+          <div class="brand-sub">Ulica bana Josipa Jelačića 166, 31220 Višnjevac</div>
         </div>
       </a>
 
@@ -48,6 +47,8 @@
         <div class="cta">
           <a class="btn btn-primary" href="#kontakt">Kontaktirajte nas</a>
           <a class="btn btn-ghost" href="#usluge">Pogledaj usluge</a>
+          <a class="btn" href="tel:+385953978660">Nazovi ured</a>
+          <a class="btn" href="tel:+385912541089">Nazovi direktora</a>
         </div>
 
         <div class="quick">
@@ -165,10 +166,18 @@
             </label>
 
             <button class="btn btn-primary" type="submit">Pošalji</button>
-            <p class="muted small">
-              Napomena: gumb otvara vaš email program. Ako želite “pravi” web obrazac, možemo dodati besplatni servis (bez servera).
-            </p>
+            <p class="muted small">Napomena: gumb otvara vaš email program.</p>
           </form>
+        </div>
+
+        <!-- Google Maps -->
+        <div class="map-wrap">
+          <iframe
+            title="Lokacija - Višnjevac"
+            loading="lazy"
+            referrerpolicy="no-referrer-when-downgrade"
+            src="https://www.google.com/maps?q=Ulica%20bana%20Josipa%20Jela%C4%8Di%C4%87a%20166,%2031220%20Vi%C5%A1njevac&output=embed">
+          </iframe>
         </div>
       </div>
     </section>
