@@ -22,10 +22,11 @@
     </a>
 
     <nav class="nav" aria-label="Glavni izbornik">
-      <a class="nav-link" href="index.html#top" data-section="top">Naslovna</a>
-      <a class="nav-link" href="index.html#usluge" data-section="usluge">Usluge</a>
+      <a class="nav-link" href="#top" data-section="top">Naslovna</a>
+      <a class="nav-link" href="#usluge" data-section="usluge">Usluge</a>
+      <a class="nav-link" href="#onama" data-section="onama">O nama</a>
       <a class="nav-link" href="radovi.html">Radovi</a>
-      <a class="nav-link" href="index.html#kontakt" data-section="kontakt">Kontakt</a>
+      <a class="nav-link" href="#kontakt" data-section="kontakt">Kontakt</a>
     </nav>
 
     <div class="search">
@@ -46,7 +47,7 @@
       <div class="cta">
         <a class="btn" href="tel:+385953978660">Nazovi ured</a>
         <a class="btn" href="tel:+385912541089">Nazovi direktora</a>
-        <a class="btn btn-primary" href="mailto:electroconsultingteam@gmail.com">Pošalji email</a>
+        <a class="btn btn-primary" href="#kontakt">Pošalji upit</a>
       </div>
 
       <div id="searchStatus" class="muted small" aria-live="polite"></div>
@@ -92,6 +93,32 @@
     </div>
   </section>
 
+  <section id="onama" class="section" data-section="onama">
+    <div class="container">
+      <div class="split">
+        <div>
+          <h2>O nama</h2>
+          <p class="lead">
+            ELECTRO CONSULTING TEAM d.o.o. pruža elektro usluge s fokusom na sigurnost, urednu dokumentaciju i kvalitetnu izvedbu.
+          </p>
+          <p class="muted">
+            Dostupni smo na području cijele Hrvatske — za kućanstva, poslovne prostore i projekte po dogovoru.
+          </p>
+        </div>
+
+        <div class="panel">
+          <h3>Što dobivate</h3>
+          <ul class="checklist">
+            <li>Jasnu ponudu i dogovor opsega</li>
+            <li>Korektnu izvedbu i komunikaciju</li>
+            <li>Urednu primopredaju i dokumentaciju</li>
+            <li>Podršku nakon završetka radova</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
   <section id="kontakt" class="section" data-section="kontakt">
     <div class="container">
       <h2>Kontakt</h2>
@@ -123,46 +150,32 @@
           </p>
         </div>
 
-        <!-- “bolji” formular (uredniji) -->
-        <form class="card" action="mailto:electroconsultingteam@gmail.com" method="post" enctype="text/plain">
+        <!-- VRAĆEN “lijepi” UPIT (kao na tvojoj slici) -->
+        <form class="card form-nice" action="mailto:electroconsultingteam@gmail.com" method="post" enctype="text/plain">
           <h3>Upit</h3>
 
           <label>
             Ime i prezime
-            <input name="Ime i prezime" placeholder="Upišite ime" required />
+            <input name="Ime i prezime" placeholder="Upišite ime" autocomplete="name" required />
           </label>
 
           <label>
-            Telefon
-            <input name="Telefon" placeholder="+385 ..." />
-          </label>
-
-          <label>
-            Lokacija (grad)
-            <input name="Lokacija" placeholder="npr. Osijek" />
-          </label>
-
-          <label>
-            Vrsta usluge
-            <select name="Usluga">
-              <option value="Elektro instalacije">Elektro instalacije</option>
-              <option value="Stručni nadzor">Stručni nadzor</option>
-              <option value="Solarni paneli">Solarni paneli</option>
-              <option value="Ostalo">Ostalo</option>
-            </select>
+            Email
+            <input type="email" name="Email" placeholder="ime@domena.com" autocomplete="email" required />
           </label>
 
           <label>
             Poruka
-            <textarea name="Poruka" rows="6" placeholder="Opišite što vam treba i okvirni rok…" required></textarea>
+            <textarea name="Poruka" rows="7" placeholder="Opišite što vam treba (lokacija, tip objekta, rok)…" required></textarea>
           </label>
 
-          <button class="btn btn-primary" type="submit">Pošalji upit</button>
-          <p class="muted small">Napomena: gumb otvara vaš email program.</p>
+          <button class="btn btn-primary" type="submit">Pošalji</button>
+          <p class="muted small">Napomena: ovo otvara vaš email program. Kasnije možemo dodati pravi web obrazac.</p>
         </form>
       </div>
 
-      <div class="map-wrap">
+      <!-- MAPA: MANJA + SAMO OVDJE -->
+      <div class="map-wrap map-small">
         <iframe
           title="Lokacija - Višnjevac"
           loading="lazy"
@@ -201,7 +214,7 @@
 <script>
   document.getElementById("y").textContent = new Date().getFullYear();
 
-  // aktivni tab (podcrtavanje crvenom) po sekcijama
+  // Aktivni tab po scrollu: Naslovna/Usluge/O nama/Kontakt
   const links = Array.from(document.querySelectorAll(".nav-link[data-section]"));
   const sections = Array.from(document.querySelectorAll("main [data-section]"));
 
@@ -215,19 +228,16 @@
   }, { rootMargin: "-30% 0px -60% 0px", threshold: [0.15, 0.25, 0.5] });
 
   sections.forEach(s => obs.observe(s));
-  setActive(location.hash === "#usluge" ? "usluge" : location.hash === "#kontakt" ? "kontakt" : "top");
+  setActive(location.hash === "#usluge" ? "usluge" : location.hash === "#onama" ? "onama" : location.hash === "#kontakt" ? "kontakt" : "top");
 
-  // tražilica (označi rezultate u sadržaju)
+  // Tražilica (bolja vidljivost je u CSS-u)
   const input = document.getElementById("searchInput");
   const btn = document.getElementById("searchBtn");
   const status = document.getElementById("searchStatus");
   const scope = document.querySelector("main");
 
   function clearMarks(){
-    scope.querySelectorAll("mark.search-hit").forEach(m => {
-      const text = document.createTextNode(m.textContent);
-      m.replaceWith(text);
-    });
+    scope.querySelectorAll("mark.search-hit").forEach(m => m.replaceWith(document.createTextNode(m.textContent)));
     scope.normalize();
   }
 
@@ -238,9 +248,9 @@
     const walker = document.createTreeWalker(scope, NodeFilter.SHOW_TEXT, {
       acceptNode: (node) => {
         if (!node.nodeValue || !node.nodeValue.trim()) return NodeFilter.FILTER_REJECT;
-        const parent = node.parentElement;
-        if (!parent) return NodeFilter.FILTER_REJECT;
-        if (["SCRIPT","STYLE","NOSCRIPT","IFRAME","SELECT","OPTION","TEXTAREA","INPUT"].includes(parent.tagName)) return NodeFilter.FILTER_REJECT;
+        const p = node.parentElement;
+        if (!p) return NodeFilter.FILTER_REJECT;
+        if (["SCRIPT","STYLE","NOSCRIPT","IFRAME","SELECT","OPTION","TEXTAREA","INPUT"].includes(p.tagName)) return NodeFilter.FILTER_REJECT;
         return NodeFilter.FILTER_ACCEPT;
       }
     });
@@ -277,13 +287,13 @@
     if (!q){ status.textContent = ""; return; }
     if (hits.length === 0){ status.textContent = `Nema rezultata za: "${q}".`; return; }
     status.textContent = `Pronađeno: ${hits.length} (prikaz prvog).`;
-    hits[0].scrollIntoView({ behavior: "smooth", block: "center" });
+    hits[0].scrollIntoView({ behavior:"smooth", block:"center" });
   }
 
   btn.addEventListener("click", doSearch);
   input.addEventListener("keydown", (e) => {
     if (e.key === "Enter") { e.preventDefault(); doSearch(); }
-    if (e.key === "Escape") { input.value = ""; clearMarks(); status.textContent = ""; }
+    if (e.key === "Escape") { input.value=""; clearMarks(); status.textContent=""; }
   });
 </script>
 </body>
