@@ -1,121 +1,288 @@
 <!DOCTYPE html>
 <html lang="hr">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>ELECTRO CONSULTING TEAM d.o.o.</title>
-<meta name="description" content="Elektro instalacije, stručni nadzor i solarni paneli. Dostupno na području cijele Hrvatske.">
-<link rel="stylesheet" href="styles.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>ELECTRO CONSULTING TEAM d.o.o. | Elektro instalacije, nadzor, solar</title>
+  <meta name="description" content="Elektro instalacije, stručni nadzor i solarni paneli. Dostupno na području cijele Hrvatske." />
+  <link rel="stylesheet" href="styles.css" />
 </head>
 
 <body>
-
 <header class="header">
   <div class="container header-inner">
-
-    <div class="brand">
+    <a class="brand" href="index.html#top" aria-label="Naslovna">
       <div class="logo-badge">
-        <img src="assets/logo_ect.png" alt="Logo">
+        <img src="assets/logo_ect.png" alt="ELECTRO CONSULTING TEAM d.o.o. logo">
       </div>
-      <div>
+      <div class="brand-text">
         <div class="brand-title">ELECTRO CONSULTING TEAM d.o.o.</div>
         <div class="brand-sub">Dostupno na području cijele Hrvatske</div>
       </div>
-    </div>
+    </a>
 
-    <nav class="nav">
-      <a href="#usluge">Usluge</a>
-      <a href="#radovi">Radovi</a>
-      <a href="#kontakt">Kontakt</a>
+    <nav class="nav" aria-label="Glavni izbornik">
+      <a class="nav-link" href="index.html#top" data-section="top">Naslovna</a>
+      <a class="nav-link" href="index.html#usluge" data-section="usluge">Usluge</a>
+      <a class="nav-link" href="radovi.html">Radovi</a>
+      <a class="nav-link" href="index.html#kontakt" data-section="kontakt">Kontakt</a>
     </nav>
 
+    <div class="search">
+      <input id="searchInput" type="search" placeholder="Pretraži stranicu…" aria-label="Pretraži stranicu" />
+      <button id="searchBtn" class="btn btn-small" type="button">Traži</button>
+    </div>
   </div>
 </header>
 
-<section class="hero">
-  <div class="container">
-    <p class="pill">Pouzdano • Sigurno</p>
-    <h1>Elektro instalacije, nadzor i solarni sustavi</h1>
-    <p class="lead">Stručna i pouzdana izvedba projekata na području cijele Hrvatske.</p>
+<main id="top">
+  <section class="hero" data-section="top">
+    <div class="container hero-inner">
+      <p class="pill">Pouzdano • Sigurno</p>
+      <h1>Elektro instalacije, stručni nadzor i ugradnja solarnih panela</h1>
+      <p class="lead">Stručna i pouzdana izvedba projekata na području cijele Hrvatske.</p>
 
-    <div class="cta">
-      <a class="btn btn-primary" href="tel:+385953978660">Nazovi ured</a>
-      <a class="btn" href="tel:+385912541089">Nazovi direktora</a>
-    </div>
-  </div>
-</section>
-
-<section id="usluge" class="section">
-  <div class="container">
-    <h2>Usluge</h2>
-    <div class="grid">
-      <div class="card">
-        <h3>Elektro instalacije</h3>
-        <p>Izvedba novih i rekonstrukcija postojećih instalacija.</p>
+      <div class="cta">
+        <a class="btn btn-primary" href="tel:+385953978660">Nazovi ured</a>
+        <a class="btn" href="tel:+385912541089">Nazovi direktora</a>
+        <a class="btn btn-ghost" href="mailto:electroconsultingteam@gmail.com">Pošalji email</a>
       </div>
 
-      <div class="card">
-        <h3>Stručni nadzor</h3>
-        <p>Nadzor izvođenja elektro radova i kontrola kvalitete.</p>
+      <div id="searchStatus" class="muted small" aria-live="polite"></div>
+    </div>
+  </section>
+
+  <section id="usluge" class="section" data-section="usluge">
+    <div class="container">
+      <h2>Usluge</h2>
+      <p class="muted">Tri ključna područja rada.</p>
+
+      <div class="grid">
+        <article class="card">
+          <h3>Elektro instalacije</h3>
+          <p>Izvedba novih i rekonstrukcija postojećih instalacija.</p>
+          <ul>
+            <li>Stanovi i kuće</li>
+            <li>Poslovni prostori</li>
+            <li>Manji pogoni / objekti</li>
+          </ul>
+        </article>
+
+        <article class="card">
+          <h3>Stručni nadzor</h3>
+          <p>Nadzor izvođenja elektro radova i kontrola kvalitete.</p>
+          <ul>
+            <li>Kontrola izvedbe</li>
+            <li>Koordinacija i zapisnici</li>
+            <li>Praćenje rokova</li>
+          </ul>
+        </article>
+
+        <article class="card">
+          <h3>Solarni paneli</h3>
+          <p>Ugradnja i puštanje u rad solarnih sustava.</p>
+          <ul>
+            <li>Priprema i dogovor</li>
+            <li>Montaža i spajanje</li>
+            <li>Testiranje sustava</li>
+          </ul>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section id="kontakt" class="section" data-section="kontakt">
+    <div class="container">
+      <h2>Kontakt</h2>
+      <p class="muted">Javite se — najbolje je navesti lokaciju, vrstu objekta i željeni rok.</p>
+
+      <div class="contact-grid">
+        <div class="card">
+          <h3>Podaci</h3>
+
+          <p class="block">
+            <strong>ELECTRO CONSULTING TEAM d.o.o.</strong><br />
+            Ulica bana Josipa Jelačića 166<br />
+            31220 Višnjevac
+          </p>
+
+          <div class="hr"></div>
+
+          <p class="block">
+            <strong>Voditelj ureda:</strong> Jelena Duspara<br />
+            <strong>Kontakt:</strong> <a href="tel:+385953978660">+385 95 397 8660</a><br />
+            <strong>Email:</strong> <a href="mailto:electroconsultingteam@gmail.com">electroconsultingteam@gmail.com</a>
+          </p>
+
+          <div class="hr"></div>
+
+          <p class="block">
+            <strong>Direktor:</strong> Goran Duspara<br />
+            <strong>Telefon:</strong> <a href="tel:+385912541089">+385 91 2541 089</a>
+          </p>
+        </div>
+
+        <form class="card" action="mailto:electroconsultingteam@gmail.com" method="post" enctype="text/plain">
+          <h3>Brzi upit</h3>
+
+          <label>
+            Ime i prezime
+            <input name="Ime i prezime" placeholder="Upišite ime" required />
+          </label>
+
+          <label>
+            Telefon (opcionalno)
+            <input name="Telefon" placeholder="+385 ..." />
+          </label>
+
+          <label>
+            Email
+            <input type="email" name="Email" placeholder="ime@domena.com" required />
+          </label>
+
+          <label>
+            Poruka
+            <textarea name="Poruka" rows="6" placeholder="Napišite lokaciju, što treba napraviti i okvirni rok…" required></textarea>
+          </label>
+
+          <button class="btn btn-primary" type="submit">Pošalji</button>
+          <p class="muted small">Napomena: gumb otvara vaš email program.</p>
+        </form>
       </div>
 
-      <div class="card">
-        <h3>Solarni paneli</h3>
-        <p>Ugradnja i puštanje u rad solarnih sustava.</p>
+      <div class="map-wrap">
+        <iframe
+          title="Lokacija - Višnjevac"
+          loading="lazy"
+          referrerpolicy="no-referrer-when-downgrade"
+          src="https://www.google.com/maps?q=Ulica%20bana%20Josipa%20Jela%C4%8Di%C4%87a%20166,%2031220%20Vi%C5%A1njevac&output=embed">
+        </iframe>
       </div>
     </div>
-  </div>
-</section>
-
-<section id="radovi" class="section">
-  <div class="container">
-    <h2>Radovi</h2>
-    <p class="muted">Primjeri izvedenih projekata.</p>
-
-    <div class="gallery">
-      <div class="gallery-item">
-        <img src="assets/radovi/kuhinja-rasvjeta-01.jpg" alt="Elektro instalacije i rasvjeta interijer">
-      </div>
-    </div>
-  </div>
-</section>
-
-<section id="kontakt" class="section">
-  <div class="container">
-    <h2>Kontakt</h2>
-
-    <div class="contact-card">
-      <p><strong>ELECTRO CONSULTING TEAM d.o.o.</strong></p>
-      <p>Ulica bana Josipa Jelačića 166<br>31220 Višnjevac</p>
-
-      <p>Voditelj ureda: Jelena Duspara<br>
-      <a href="tel:+385953978660">+385 95 397 8660</a></p>
-
-      <p>Direktor: Goran Duspara<br>
-      <a href="tel:+385912541089">+385 91 2541 089</a></p>
-
-      <p>Email:<br>
-      <a href="mailto:electroconsultingteam@gmail.com">
-      electroconsultingteam@gmail.com</a></p>
-    </div>
-
-    <div class="map-wrap">
-      <iframe
-        src="https://www.google.com/maps?q=Ulica%20bana%20Josipa%20Jela%C4%8Di%C4%87a%20166,%2031220%20Vi%C5%A1njevac&output=embed">
-      </iframe>
-    </div>
-
-  </div>
-</section>
+  </section>
+</main>
 
 <footer class="footer">
-  <div class="container">
-    <p><strong>ELECTRO CONSULTING TEAM d.o.o.</strong></p>
-    <p>MBS: 4396944 • OIB: 88549638751</p>
-    <p>IBAN: HR2224070001100430416 (OTP Banka d.d.)</p>
-    <p>© 2026 Sva prava pridržana</p>
+  <div class="container footer-inner">
+    <div>
+      <strong>ELECTRO CONSULTING TEAM d.o.o.</strong><br />
+      Ulica bana Josipa Jelačića 166, 31220 Višnjevac
+    </div>
+
+    <div class="muted">
+      Upisano u sudski registar Trgovačkog suda u Osijeku • MBS: 4396944<br />
+      Temeljni kapital: 20.000,00 kn (uplaćen u cijelosti) • Uprava: Goran Duspara
+    </div>
+
+    <div class="muted">
+      Identifikacijski broj (OIB): 88549638751<br />
+      Matični broj: 4396944<br />
+      IBAN: HR2224070001100430416 (OTP Banka d.d.)
+    </div>
+
+    <div class="muted small">
+      © <span id="y"></span> ELECTRO CONSULTING TEAM d.o.o. • Sva prava pridržana
+    </div>
   </div>
 </footer>
 
+<script>
+  // godina
+  document.getElementById("y").textContent = new Date().getFullYear();
+
+  // aktivni tab (podcrtavanje) - Naslovna/Usluge/Kontakt po scrollu + hash
+  const links = Array.from(document.querySelectorAll(".nav-link[data-section]"));
+  const sections = Array.from(document.querySelectorAll("main [data-section]"));
+
+  function setActive(sectionId){
+    links.forEach(a => a.classList.toggle("active", a.getAttribute("data-section") === sectionId));
+  }
+
+  const obs = new IntersectionObserver((entries) => {
+    const visible = entries.filter(e => e.isIntersecting).sort((a,b)=>b.intersectionRatio-a.intersectionRatio)[0];
+    if (visible) setActive(visible.target.getAttribute("data-section"));
+  }, { rootMargin: "-30% 0px -60% 0px", threshold: [0.15, 0.25, 0.5] });
+
+  sections.forEach(s => obs.observe(s));
+
+  // ako dođeš direktno s hashom
+  if (location.hash === "#usluge") setActive("usluge");
+  else if (location.hash === "#kontakt") setActive("kontakt");
+  else setActive("top");
+
+  // tražilica (označi rezultate u sadržaju)
+  const input = document.getElementById("searchInput");
+  const btn = document.getElementById("searchBtn");
+  const status = document.getElementById("searchStatus");
+  const scope = document.querySelector("main");
+
+  function clearMarks(){
+    scope.querySelectorAll("mark.search-hit").forEach(m => {
+      const text = document.createTextNode(m.textContent);
+      m.replaceWith(text);
+    });
+    // normaliziraj tekst nodove
+    scope.normalize();
+  }
+
+  function markAll(query){
+    clearMarks();
+    if (!query) { status.textContent = ""; return []; }
+
+    const walker = document.createTreeWalker(scope, NodeFilter.SHOW_TEXT, {
+      acceptNode: (node) => {
+        if (!node.nodeValue || !node.nodeValue.trim()) return NodeFilter.FILTER_REJECT;
+        const parent = node.parentElement;
+        if (!parent) return NodeFilter.FILTER_REJECT;
+        if (["SCRIPT","STYLE","NOSCRIPT","IFRAME"].includes(parent.tagName)) return NodeFilter.FILTER_REJECT;
+        return NodeFilter.FILTER_ACCEPT;
+      }
+    });
+
+    const hits = [];
+    const q = query.toLowerCase();
+
+    while (walker.nextNode()){
+      const node = walker.currentNode;
+      const text = node.nodeValue;
+      const idx = text.toLowerCase().indexOf(q);
+      if (idx === -1) continue;
+
+      // samo prvi match po text nodeu (jednostavno i stabilno)
+      const before = document.createTextNode(text.slice(0, idx));
+      const match = document.createElement("mark");
+      match.className = "search-hit";
+      match.textContent = text.slice(idx, idx + query.length);
+      const after = document.createTextNode(text.slice(idx + query.length));
+
+      const frag = document.createDocumentFragment();
+      frag.appendChild(before);
+      frag.appendChild(match);
+      frag.appendChild(after);
+
+      node.parentNode.replaceChild(frag, node);
+      hits.push(match);
+    }
+    return hits;
+  }
+
+  function doSearch(){
+    const q = input.value.trim();
+    const hits = markAll(q);
+    if (!q){ status.textContent = ""; return; }
+    if (hits.length === 0){
+      status.textContent = `Nema rezultata za: "${q}".`;
+      return;
+    }
+    status.textContent = `Pronađeno: ${hits.length} (prikaz prvog).`;
+    hits[0].scrollIntoView({ behavior: "smooth", block: "center" });
+  }
+
+  btn.addEventListener("click", doSearch);
+  input.addEventListener("keydown", (e) => {
+    if (e.key === "Enter") { e.preventDefault(); doSearch(); }
+    if (e.key === "Escape") { input.value = ""; clearMarks(); status.textContent = ""; }
+  });
+</script>
 </body>
 </html>
